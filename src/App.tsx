@@ -29,6 +29,12 @@ import {
 } from 'lucide-react';
 
 // --- Components ---
+const premiumReveal = {
+  initial: { opacity: 0, y: 42, filter: 'blur(10px)' },
+  whileInView: { opacity: 1, y: 0, filter: 'blur(0px)' },
+  viewport: { once: false, amount: 0.22 },
+  transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const },
+};
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -150,10 +156,10 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, x: -48, filter: 'blur(10px)' }}
+            whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+            viewport={{ once: false, amount: 0.22 }}
+            transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
           >
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">
               Engineering <br />
@@ -184,10 +190,10 @@ const About = () => {
           </motion.div>
           
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, scale: 0.94, filter: 'blur(10px)' }}
+            whileInView={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+            viewport={{ once: false, amount: 0.22 }}
+            transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
             <div className="aspect-square glass rounded-3xl overflow-hidden relative group">
@@ -257,10 +263,10 @@ const Skills = () => {
           {skillCategories.map((category, idx) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
+              initial={premiumReveal.initial}
+              whileInView={premiumReveal.whileInView}
+              viewport={premiumReveal.viewport}
+              transition={{ ...premiumReveal.transition, delay: idx * 0.1 }}
               className="glass p-8 rounded-3xl"
             >
               <div className="flex items-center gap-4 mb-8">
@@ -342,10 +348,10 @@ const Projects = () => {
           {projects.map((project, idx) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, y: 56, filter: 'blur(10px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
               className={`grid lg:grid-cols-2 gap-12 items-center ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
             >
               <div className={idx % 2 !== 0 ? 'lg:order-2' : ''}>
@@ -417,10 +423,10 @@ const Workflow = () => {
           {steps.map((step, idx) => (
             <motion.div
               key={step.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
+              initial={premiumReveal.initial}
+              whileInView={premiumReveal.whileInView}
+              viewport={premiumReveal.viewport}
+              transition={{ ...premiumReveal.transition, delay: idx * 0.1 }}
               className="relative z-10"
             >
               <div className="w-24 h-24 glass rounded-3xl flex items-center justify-center mx-auto mb-8 group hover:bg-white hover:text-black transition-all duration-500">
@@ -443,10 +449,10 @@ const Contact = () => {
       
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, scale: 0.95, y: 28, filter: 'blur(10px)' }}
+          whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
+          viewport={{ once: false, amount: 0.22 }}
+          transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tighter mb-12">
             Let's build something <br />
