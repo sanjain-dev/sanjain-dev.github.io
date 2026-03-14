@@ -309,11 +309,11 @@ const Skills = () => {
 const Projects = () => {
   const projects = [
     {
-      title: 'FuelWise AI',
-      description: 'AI powered nutrition analysis & fitness optimization system. Built with React, Node.js and OpenAI API.',
+      title: 'ScholarAI',
+      description: 'Mini project focused on smart student learning support with AI-powered assistance and fast, intuitive workflows.',
       image: 'https://picsum.photos/seed/fuelwise/1200/800',
       tags: ['React', 'Node.js', 'AI', 'Tailwind'],
-      links: { demo: '#', github: '#' }
+      links: { demo: 'https://github.com/sanjain-dev?tab=repositories&q=scholarAI', github: 'https://github.com/sanjain-dev?tab=repositories&q=scholarAI' }
     },
     {
       title: 'WaterWatch',
@@ -355,14 +355,14 @@ const Projects = () => {
               className={`grid lg:grid-cols-2 gap-12 items-center ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
             >
               <div className={idx % 2 !== 0 ? 'lg:order-2' : ''}>
-                <div className="aspect-[16/10] glass rounded-3xl overflow-hidden group cursor-pointer">
+                <a href={project.links.demo} target="_blank" rel="noreferrer" className="block aspect-[16/10] glass rounded-3xl overflow-hidden group cursor-pointer">
                   <img 
                     src={project.image} 
                     alt={project.title} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                     referrerPolicy="no-referrer"
                   />
-                </div>
+                </a>
               </div>
               
               <div className={idx % 2 !== 0 ? 'lg:order-1' : ''}>
